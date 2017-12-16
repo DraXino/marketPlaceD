@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DraXinoMarket</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>DraXinoMarket</title>
+	<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-  <body>
+<body>
 
-  <%= render "layouts/header" %>
+	<%= render "layouts/header" %>
 
-  <main>
-  <%= yield %>
-</main>
-  <%= render "layouts/footer" %>
-  </body>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+	<main class= "container">
+		<%= yield %>
+	</main>
+	<%= render "layouts/footer" %>
+</body>
 
 
-  <script>
-  	$(".button-collapse").sideNav();
-  </script>
+<script>
+	$(".button-collapse").sideNav();
+</script>
 </html>

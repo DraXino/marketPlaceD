@@ -34,6 +34,8 @@ gem 'materialize-sass'
 
 gem 'devise'
 
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
