@@ -1,30 +1,23 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
-
-  # GET /contents
-  # GET /contents.json
+  before_action :authenticate_user!, except:[:index, :show]
+  before_action :check_user, only:[:edit, :update, :destroy]
   def index
     @contents = Content.all
   end
 
-  # GET /contents/1
-  # GET /contents/1.json
   def show
   end
 
-  # GET /contents/new
   def new
-    @content = Content.new
+    @content = current_user.contents.build
   end
 
-  # GET /contents/1/edit
   def edit
   end
 
-  # POST /contents
-  # POST /contents.json
   def create
-    @content = Content.new(content_params)
+    @content = current_user.contents.build(content_params)
 
     respond_to do |format|
       if @content.save
@@ -32,7 +25,6 @@ class ContentsController < ApplicationController
         format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +38,6 @@ class ContentsController < ApplicationController
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,5 +61,11 @@ class ContentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:titolo, :descrizione, :price)
+    end
+
+    def check_user
+      if current_user != @content.user
+        redirect_to root_url, alert: "Scusa ma non hai accesso a questa pagina"
+      end
     end
 end

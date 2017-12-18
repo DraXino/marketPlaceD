@@ -24,6 +24,13 @@
 
 
 <script>
-	$(".button-collapse").sideNav();
+function initialize() {
+  $('.button-collapse').sideNav();
+  $('.button-collapse').click(removeOverlay);
+}
+
+function removeOverlay() {
+  $('div[id^=sidenav-overlay]').remove();
+}
 </script>
 </html>
