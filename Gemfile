@@ -38,6 +38,12 @@ gem 'material_icons'
 
 gem 'devise'
 
+#gem "paperclip", "~> 5.0.0"
+
+#gem 'paperclip-i18n'
+
+gem "paperclip", "~> 4.3"
+
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 # Use Capistrano for deployment

@@ -15,17 +15,17 @@
 
   <tbody>
     <% @contents.each do |content| %>
-      <tr>
-        <td><%= content.titolo %></td>
-        <td><%= content.descrizione %></td>
-        <td><%= content.user.name if content.user %></td>
-        <td><%= content.price %></td>
-        <td><%= link_to 'Mostra', content %></td>
-        <% if content.user == current_user %>
-        <td><%= link_to 'Modifica', edit_content_path(content) %></td>
-        <td><%= link_to 'Distruggi', content, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
-        <% end %>
-      </tr>
+    <tr>
+      <td><%= content.titolo %></td>
+      <td><%= content.descrizione %></td>
+      <td><%= content.user.name if content.user %></td>
+      <td><%= content.price %></td>
+      <td><%= link_to 'Mostra', content %></td>
+      <% if content.user == current_user %>
+      <td><%= link_to 'Modifica', edit_content_path(content) %></td>
+      <td><%= link_to 'Distruggi', content, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>

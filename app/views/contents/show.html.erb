@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<%=  image_tag @content.cover.url{:medium} %>
+
 <p>
-	<strong>Titolo:</strong>
 	<%= @content.titolo %>
 </p>
 
 <p>
-	<strong>Descrizione:</strong>
 	<%= @content.descrizione %>
 </p>
 
 <p>
-	<strong>Price:</strong>
 	<%= @content.price %>
 </p>
 
