@@ -42,7 +42,7 @@ gem 'devise'
 
 #gem 'paperclip-i18n'
 
-gem "paperclip", "~> 4.3"
+gem "paperclip", "~> 5.0.0.beta1"
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
