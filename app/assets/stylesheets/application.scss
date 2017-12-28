@@ -13,32 +13,44 @@
  *= require_tree .
  *= require_self
  */
-@import "materialize";
-@import "material_icons";
+ @import "materialize";
+ @import "material_icons";
 
  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+h1 {
+  font-size: 3em;
+}
 
-  .btn-devise {
-    width: 100%;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  .show-img {
-    padding-right: 5%;
-  }
+.btn-devise {
+  width: 100%;
+}
 
-  .show-titolo {
-    margin-top: 0;
-    font-size: 3.4em;
-  }
+.show-img {
+  padding-right: 5%;
+}
 
-  .show-prezzo {
-    font-size: 2em;
-  }
+.show-titolo {
+  margin-top: 0;
+  font-size: 3.4em;
+}
+
+.show-prezzo {
+  font-size: 2em;
+}
+
+.brn-form {
+  width: 100%;
+}
+
+.card-image {
+  height: 150px;
+}

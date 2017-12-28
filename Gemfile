@@ -44,6 +44,10 @@ gem 'devise'
 
 gem "paperclip", "~> 5.0.0.beta1"
 
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'will_paginate-materialize'
+
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 # Use Capistrano for deployment
