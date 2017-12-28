@@ -1,7 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contents</h1>
+<!-- <h1>Contents</h1> -->
 
+<div class="row">
+  <% @contents.each do |content| %>
+  <div class="col s3">
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <%=  image_tag content.cover.url, class:"activator" %>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">more_vert</i></span>
+        <div>
+          <pan>Desiderato da <%= content.user.name if content.user %></pan>
+          <pan class="right"><%= number_to_currency(content.price) %></pan>
+        </div>        
+        <br>
+        <div class="center"><%= link_to 'Scpri di più', content,class: "btn" %></div>
+        <% if content.user == current_user %>
+          <br>
+          <div class="center">
+          <p><%= link_to 'Modifica', edit_content_path(content) %>
+            <%= link_to 'Distruggi', content, method: :delete, data: { confirm: 'Sei sicuro?' } %></p>
+          </div>
+        <% end %>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">close</i></span>
+          <p><%= content.descrizione %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+<!--
 <table>
   <thead>
     <tr>
@@ -31,7 +64,7 @@
     <% end %>
   </tbody>
 </table>
-
+-->
 <br>
 
 <%= link_to 'New Content', new_content_path %>

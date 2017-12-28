@@ -1,7 +1,7 @@
 class Content < ApplicationRecord
 	belongs_to :user
 	
-	has_attached_file :cover, { styles: {medium: '400x>', thumb: '100x>'}, s3_permissions: :private, :default_url => "/img/:style/null.png"}
+	has_attached_file :cover#, {  s3_permissions: :private, :default_url => "/img/:style/null.png"}  #,styles: {medium: '400x>', thumb: '100x>'},
 	#has_attached_file :cover, styles: { medium: "300x>", thumb: "100x>" } #, default_url: "/images/:style/missing.png"
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/,
 	message: "Solo le immagini sono supportate"
