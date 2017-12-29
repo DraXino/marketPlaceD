@@ -1,50 +1,49 @@
 <%= form_with(model: @content, local: true, html: { multipart: true }) do |form| %>
-  <% if content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
+<% if content.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
 
-      <ul>
-      <% content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% content.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
+<div class="field">
+  <p class="deep-purple-text text-accent-1">Carica il contenuto digitale che vuoi caricare</p>
+  <%= form.file_field :allegato, id: :content_cover %>
+</div>
 
+<div class="field">
+  <%= form.label :Titolo %>
+  <%= form.text_field :titolo, id: :content_titolo %>
+</div>
 
-  <div class="field">
-    <p class="deep-purple-text text-accent-1">Carica il contenuto digitale che vuoi caricare</p>
-    <%= form.file_field :allegato, id: :content_cover %>
-  </div>
+<div class="field">
+  <%= form.label :Descrizione %>
+  <%= form.text_area :descrizione, id: :content_descrizione, class:"materialize-textarea" %>
+</div>
 
+<div class="field">
+  <%= form.label :Prezzo_min_50_cent %>
+  <%= form.text_field :price, id: :content_price %>
+</div>
 
-  <div class="field">
-    <%= form.label :titolo %>
-    <%= form.text_field :titolo, id: :content_titolo %>
-  </div>
+<br>
 
-  <div class="field">
-    <%= form.label :descrizione %>
-    <%= form.text_area :descrizione, id: :content_descrizione, class:"materialize-textarea" %>
-  </div>
+<div class="field">
+  <%= form.label :Immagine %>
+  <%= form.file_field :cover, id: :content_cover %>
+</div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :content_price %>
-  </div>
+<br>
+<br>
 
-  <div class="field">
-    <%= form.label :cover %>
-    <%= form.file_field :cover, id: :content_cover %>
-  </div>
-  
-  <br>
+<div class="actions">
+  <%= form.submit 'Salva contenuto', class: "btn brn-form" %>
+</div>
 
-
-  <div class="actions">
-    <%= form.submit 'Salva contenuto', class: "btn brn-form" %>
-  </div>
-
-  <br>
+<br>
 <% end %>

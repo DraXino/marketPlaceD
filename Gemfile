@@ -48,6 +48,10 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'will_paginate-materialize'
 
+gem 'friendly_id', '~> 5.1.0'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 # Use Capistrano for deployment
