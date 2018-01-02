@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229102815) do
+ActiveRecord::Schema.define(version: 20180102100535) do
 
   create_table "contents", force: :cascade do |t|
     t.string "titolo"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 20171229102815) do
     t.integer "content_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state"
+    t.string "stripe_id"
+    t.string "stripe_token_string"
+    t.text "error"
   end
 
   create_table "users", force: :cascade do |t|
