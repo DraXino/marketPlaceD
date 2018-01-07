@@ -1,14 +1,17 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:index, :show]
-  before_action :check_user, only:[:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, only: [:edit, :update, :destroy]
+
 
   def index
     @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
   end
 
+
   def show
   end
+
 
   def new
     @content = current_user.contents.build
@@ -17,38 +20,35 @@ class ContentsController < ApplicationController
   def edit
   end
 
+
   def create
     @content = current_user.contents.build(content_params)
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Il contenuto è stato salvato.' }
-        format.json { render :show, status: :created, location: @content }
+        format.html { redirect_to @content, notice: 'Il contenuto è stato creato con successo' }
       else
         format.html { render :new }
       end
     end
   end
 
-  # PATCH/PUT /contents/1
-  # PATCH/PUT /contents/1.json
+
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Il contenuto è stato aggiornato.' }
-        format.json { render :show, status: :ok, location: @content }
+        format.html { redirect_to @content, notice: 'Il contenuto è stato aggiornato con successo' }
       else
         format.html { render :edit }
       end
     end
   end
 
-  # DELETE /contents/1
-  # DELETE /contents/1.json
+
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Il contenuto è stato distrutto.' }
+      format.html { redirect_to contents_url, notice: 'Il contenuto è stato eliminato' }
       format.json { head :no_content }
     end
   end
@@ -61,11 +61,11 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:titolo, :descrizione, :price, :cover, :allegati)
+      params.require(:content).permit(:titolo, :descrizione, :price, :cover, :allegato)
     end
 
     def check_user
-      if current_user != @content.user
+      if current_user != @content.user 
         redirect_to root_url, alert: "Scusa ma non hai accesso a questa pagina"
       end
     end
