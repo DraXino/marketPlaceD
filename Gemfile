@@ -32,29 +32,37 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
  
-# Sempre inclua
-gem 'materialize-sass'
 gem 'material_icons'
+gem 'materialize-sass'
 
 gem 'devise'
 
-#gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 4.3"
 
-#gem 'paperclip-i18n'
-
-gem "paperclip", "~> 5.0.0.beta1"
-
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate', '~> 3.0.6'
 
 gem 'will_paginate-materialize'
 
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'stripe'
 
 gem 'aasm'
+
+
+gem 'font-awesome-sass'
+
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+
+gem "slim-rails"
+
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
@@ -67,11 +75,14 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+    gem 'byebug'
+  gem 'sqlite3'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'spring'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

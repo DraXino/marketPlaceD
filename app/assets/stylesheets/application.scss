@@ -1,56 +1,74 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- @import "materialize";
- @import "material_icons";
+@import "materialize";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
- body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+  }
 
-h1 {
-  font-size: 3em;
-}
+  h1 {
+  	font-size: 3.5em;
+  }
 
-main {
-  flex: 1 0 auto;
-}
+  h2 {
+    font-size: 2em;
+  }
 
-.btn-devise {
-  width: 100%;
-}
+  h4 {
+    font-size: 1.2em;
+  }
 
-.show-img {
-  padding-right: 5%;
-}
+  main {
+    flex: 1 0 auto;
+  }
 
-.show-titolo {
-  margin-top: 0;
-  font-size: 3.4em;
-}
+  .home-subtitle {
+    margin: 5% 0 5% 0;
+  }
 
-.show-prezzo {
-  font-size: 2em;
-}
+  .content-show {
+    margin-top: 5%;
+  }
 
-.brn-form {
-  width: 100%;
+  .dropdown-content {
+    min-width: 150px;
+  }
+
+ .btn-devise {
+ 	width: 100%;
+ }
+
+ .show-img {
+ 	padding-right: 5%;
+ }
+
+ .show-titolo {
+ 	margin-top: 0;
+ 	font-size: 3.4em;
+ }
+
+ .show-prezzo {
+ 	font-size: 2em;
+ }
+
+.btn-form {
+	width: 100%;
 }
 
 .card-image {
   height: 150px;
 }
+
+.fa-social {
+  padding: 0 10px;
+}
+
+@media (max-width: 600px) {
+  .fa-social {
+  padding: 0 10%;
+  }
+}
+      

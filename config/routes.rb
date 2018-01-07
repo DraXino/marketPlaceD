@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   #root 'pages#home'
 
-  root 'contents#index'
+  root 'pages#home'
 
   get 'about' => 'pages#about'
 

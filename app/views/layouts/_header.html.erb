@@ -1,26 +1,38 @@
 <header class="navbar-fixed">
-	  <nav class="light-blue darken-4">
+	<nav class="blue accent-1">
 	    <div class="container nav-wrapper">
-	      <%=  link_to "DellannaE",root_path, class: "brand-logo" %>
+	    	<%= link_to '<i class="fa fa-diamond" aria-hidden="true"> DellAnnaE</i>'.html_safe, root_path, class: "brand-logo" %>
 	      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        	<ul class="right hide-on-med-and-down">
-	      	<li><%= link_to "Vendi contenuto", new_content_path %></li>
-	      	<% if user_signed_in? %>
-	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-	      	<% else %>
-		      	<li><%= link_to "Log In", new_user_session_path %></li>
-		      	<li><%= link_to "Registrazione", new_user_registration_path %></li>
-		    <% end -%>
+	      <ul class="right hide-on-med-and-down">
+	      	<li><%= link_to 'Vendi contenuto', new_content_path %></li>
+	        
+	        <% if user_signed_in? %>
+
+	        <ul id="dropdown1" class="dropdown-content">
+  				<li><%= link_to "Dashboard" %></li>
+				<li><%= link_to "Impostazioni", edit_user_registration_path %></li>
+				<li class="divider"></li>
+				<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+			</ul>
+	        	<li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+	        <% else %>
+	        	<li><%= link_to "Log In", new_user_session_path %></li>
+	        	<li><%= link_to "Registrazione", new_user_registration_path %></li>
+	        <% end %>
+	        
 	      </ul>
 	      <ul class="side-nav" id="mobile-demo">
-	      	<li><%= link_to "Vendi contenuto", new_content_path %></li>
-	      	<% if user_signed_in? %>
-	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-	      	<% else %>
-		      	<li><%= link_to "Log In", new_user_session_path %></li>
-		      	<li><%= link_to "Registrazione", new_user_registration_path %></li>
-		    <% end -%>
+	      	<li><%= link_to 'Vendi contenuto', new_content_path %></li>
+	        <% if user_signed_in? %>
+  				<li><%= link_to "Dashboard" %></li>
+				<li><%= link_to "Impostazioni", edit_user_registration_path %></li>
+				<li class="divider"></li>
+				<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+	        <% else %>
+	        	<li><%= link_to "Log In", new_user_session_path %></li>
+	        	<li><%= link_to "Registrazione", new_user_registration_path %></li>
+	        <% end %>
 	      </ul>
 	    </div>
-	  </nav>
- </header>
+	</nav>
+</header>
